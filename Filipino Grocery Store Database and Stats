@@ -1,0 +1,27 @@
+--Create a Fiipino grocery store datbase
+
+CREATE TABLE FILIPINO_STORE (id INTEGER PRIMARY KEY, item TEXT, section TEXT, quantity INTEGER, aisle INTEGER, price INTEGER, popularity INTEGER);
+INSERT INTO FILIPINO_STORE VALUES (1, "Mang Tomas","Condiments",15, 17, 8.55,95);
+INSERT INTO FILIPINO_STORE VALUES (2, "Sinigang MIX","Condiments", 50,5, 2.40,97);
+INSERT INTO FILIPINO_STORE VALUES (3, "Suka at Toyo","Condiments" ,20, 5, 12.10, 85);
+INSERT INTO FILIPINO_STORE VALUES (4, "Piato","Snack",15,5,4.50,98);
+INSERT INTO FILIPINO_STORE VALUES (5, "Nestea Lemon", "Drinks", 12, 2, 5.25, 80);
+INSERT INTO FILIPINO_STORE VALUES (6, "Magic Sarap", "Condiments", 30, 5, 3.75,90);
+INSERT INTO FILIPINO_STORE VALUES (7, "Bagoong" ,"Condiments",10, 5,7.45, 75);
+INSERT INTO FILIPINO_STORE VALUES (8, "Patis" ,"Condiments",10, 5, 6.75, 90);
+INSERT INTO FILIPINO_STORE VALUES (9, "Pancit Canton", "Noodles", 30,5, 1.25, 98);
+INSERT INTO FILIPINO_STORE VALUES (10, "Century Tuna","Canned Goods",18,8, 5.99, 85);
+
+--display the database ordered by price.
+SELECT * FROM FILIPINO_STORE 
+ORDER BY price desc;
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG (price) "avg condiments item price" 
+FROM FILIPINO_STORE 
+WHERE section ='Condiments';
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity FROM FILIPINO_STORE ORDER BY popularity desc
+LIMIT 5;
+
